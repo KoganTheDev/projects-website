@@ -3,6 +3,7 @@
 ## Features to Add
 - [ ] Add a "Contact Me" section to the portfolio.
 - [ ] *maybe* add some animations e.g ripple effect.
+- [ ] add favicon
 
 ## Fixes
 - [ ] Fix the image paths for project thumbnails.
