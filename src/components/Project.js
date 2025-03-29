@@ -70,7 +70,7 @@ function Project({ name, images, description, repoLink, video }) {
       </div>
       <p>{description}</p>
       <a href={repoLink} target="_blank" rel="noopener noreferrer">
-        View Repository
+        <button className="button">View Repository</button>
       </a>
     </div>
   );

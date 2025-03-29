@@ -1,4 +1,4 @@
-/* Navbar styles */
+/*------------------------------ Navbar styles-------------------------------------- */
 .navbar {
   position: sticky; /* Makes the navbar stick to the top */
   top: 0; /* Sticks the navbar to the top of the viewport */
@@ -73,7 +73,7 @@
   margin: 0 0.5rem;
 }
 
-/* Project styles */
+/*-----------------------------Project styles-------------------------------------------*/
 .project {
   max-width: 800px; /* Limit the width of the project section */
   margin: 0 auto; /* Center the project section */
@@ -91,15 +91,19 @@
 }
 
 .project-carousel {
-  margin: 20px 0;
-  overflow: hidden; /* Prevent horizontal scrolling */
+  width: 100%;
+  height: 400px; /* Adjust the height as needed */
+  position: relative; /* Ensure the arrows are positioned correctly */
+  /*overflow: hidden; */
 }
+
 
 .project-carousel img,
 .project-carousel video {
   width: 100%;
   height: auto;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 .slick-list {
@@ -111,25 +115,67 @@
   align-items: center;
 }
 
-.slick-prev,
-.slick-next {
-  z-index: 1;
+/* Additional styles for custom arrows */
+.slick-prev, .slick-next {
+  font-size: 24px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100; /* Ensure the arrows are above the images */
 }
 
-.slick-prev:before,
-.slick-next:before {
-  color: black;
+.slick-prev {
+  left: 10px;
 }
+
+.slick-next {
+  right: 10px;
+}
+
 
 .projects {
   display: flex;
   flex-direction: column; /* Stack projects vertically */
   align-items: center; /* Center projects horizontally */
   gap: 20px; /* Add space between projects */
-  margin-top: 40px; /* Add space above the projects section */
 }
 
-/* App styles */
+.project .button {
+  background-color: #61dafb; /* Light blue background */
+  color: #ffffff; /* White text */
+  font-size: 1.1rem; /* Slightly larger text for better readability */
+  padding: 12px 20px; /* Padding for spacing inside the button */
+  border-radius: 25px; /* Rounded corners */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Show a pointer on hover */
+  transition: all 0.3s ease; /* Smooth transition effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-transform: uppercase; /* Capitalize the text */
+  letter-spacing: 1px; /* Add a little letter spacing for a modern look */
+}
+
+.project .button:hover {
+  background-color: #21a1f1; /* Darker blue when hovered */
+  transform: translateY(-3px); /* Lift the button slightly */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Slightly more intense shadow on hover */
+}
+
+.project .button:active {
+  transform: translateY(1px); /* Slight depression effect on click */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Return to initial shadow */
+}
+
+.project .button:focus {
+  outline: none; /* Remove the focus outline */
+  border: 2px solid #21a1f1; /* Add a border when focused */
+}
+
+/*------------------------------ App styles------------------------------------------------ */
 .App {
   text-align: center;
   background-color: #ffffff; /* White background for the main content */

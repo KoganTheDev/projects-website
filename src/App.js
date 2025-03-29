@@ -14,18 +14,27 @@ function App() {
 
   const projects = [
     {
-      name: 'Project 1',
-      video: 'path/to/project1-video.mp4', // Path to the video
-      images: ['path/to/image1.jpg', 'path/to/image2.jpg'], // Paths to images
-      description: 'This is my first project.',
-      repoLink: 'https://github.com/yourusername/project1',
+      name: 'BLib - Library Management System 📘',
+      video: require('./assets/videos/BLib_project_video.mp4'), // Path to the video
+      images: [require('./assets/images/BLib_images/BLib1.png'), require('./assets/images/BLib_images/BLib2.png'),
+        require('./assets/images/BLib_images/BLib3.png'), require('./assets/images/BLib_images/BLib4.png')], // Paths to images
+      description: 'BLib is a library management system, built with Java and JavaFX. It supports ' +
+    'book borrowing, reservations, and user management, using SQL with MySQL for database management.',
+      repoLink: 'https://github.com/KoganTheDev/BLib_MidTerm_Project',
     },
     {
-      name: 'Project 2',
+      name: 'Custom UNIX Shells 🐧',
       video: 'path/to/project2-video.mp4', // Path to the video
       images: ['path/to/image3.jpg', 'path/to/image4.jpg'], // Paths to images
       description: 'This is my second project.',
-      repoLink: 'https://github.com/yourusername/project2',
+      repoLink: 'https://github.com/KoganTheDev/Custom-UNIX-Shells',
+    },
+    {
+      name: 'Gymbory Website 💪',
+      video: 'path/to/project2-video.mp4', // Path to the video
+      images: ['path/to/image3.jpg', 'path/to/image4.jpg'], // Paths to images
+      description: 'This is my second project.',
+      repoLink: 'https://github.com/KoganTheDev/The-Gymbory-Website',
     },
   ];
 
@@ -40,7 +49,7 @@ function App() {
           <div id="about-me" className="about-me">
             <div className="about-me-image">
               <img
-                src={require('./assets/my_LinkedIn_image.png')}
+                src={require('./assets/images/my_LinkedIn_image.png')}
                 alt="my LinkedIn profile"
                 className="profile-image"
               />

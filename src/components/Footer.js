@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/styles.css';
-import linkedInIcon from '../assets/LinkedIn-icon.svg';
-import gitHubIcon from '../assets/Github-icon.svg';
-import emailIcon from '../assets/email-icon.svg'; 
+import linkedInIcon from '../assets/.svg/LinkedIn-icon.svg';
+import gitHubIcon from '../assets/.svg/Github-icon.svg';
+import emailIcon from '../assets/.svg/email-icon.svg'; 
 
 function Footer() {
   const id = "footer section";
