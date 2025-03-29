@@ -32,33 +32,36 @@ function App() {
   return (
     <div className="background-box">
       <div className="App">
-        <Navbar/>
+        <Navbar />
         <header className="App-header">
           <div data-aos="fade-up">
             <h1>Welcome to My Portfolio</h1>
           </div>
-          <div className="about-me">
+          <div id="about-me" className="about-me">
             <div className="about-me-image">
-              <img src={require('./assets/my_LinkedIn_image.png')} alt="my LinkedIn profile" className="profile-image" />
+              <img
+                src={require('./assets/my_LinkedIn_image.png')}
+                alt="my LinkedIn profile"
+                className="profile-image"
+              />
             </div>
             <div className="about-me-text">
               <p>
-                Passionate Software Engineering student with a strong foundation in 
-                <strong> C, C++, Java, and Python.</strong> I enjoy solving 
-                <strong> complex problems</strong>, building efficient solutions, and <strong>continuously learning 
-                new technologies.</strong>
-                When I'm not coding, I love exploring new tech trends, collaborating on innovative projects, 
-                and sharing knowledge with the developer community.
+                Passionate Software Engineering student with a strong foundation in
+                <strong> C, C++, Java, and Python.</strong> I enjoy solving
+                <strong> complex problems</strong>, building efficient solutions, and <strong>continuously learning
+                new technologies.</strong> When I'm not coding, I love exploring new tech trends, collaborating on
+                innovative projects, and sharing knowledge with the developer community.
               </p>
             </div>
           </div>
-          <div className="projects">
+          <div id="projects" className="projects">
             {projects.map((project, index) => (
               <Project key={index} {...project} />
             ))}
           </div>
         </header>
-        <Footer />
+        <Footer id="contact" />
       </div>
     </div>
   );

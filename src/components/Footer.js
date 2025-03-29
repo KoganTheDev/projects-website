@@ -5,8 +5,9 @@ import gitHubIcon from '../assets/Github-icon.svg';
 import emailIcon from '../assets/email-icon.svg'; 
 
 function Footer() {
+  const id = "footer section";
   return (
-    <footer className="footer">
+    <footer id={id} className="footer">
       <div className="social-links">
         <a href="https://github.com/KoganTheDev" target="_blank" rel="noopener noreferrer">
           <img src={gitHubIcon} alt="GitHub" />
