@@ -51,13 +51,13 @@
 
 /* Project styles */
 .project {
-  border: 1px solid #ccc;
+  max-width: 800px; /* Limit the width of the project section */
+  margin: 0 auto; /* Center the project section */
   padding: 1rem;
-  margin: 1rem;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  opacity: 0;
-  transform: translateX(-50px);
-  animation: slideIn 0.5s ease-out forwards;
+  background-color: #000000; /* Add a light background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
 .project-images img {
@@ -66,9 +66,55 @@
   margin: 0.5rem;
 }
 
+.project-carousel {
+  margin: 20px 0;
+  overflow: hidden; /* Prevent horizontal scrolling */
+}
+
+.project-carousel img,
+.project-carousel video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.slick-list {
+  overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column; /* Stack projects vertically */
+  align-items: center; /* Center projects horizontally */
+  gap: 20px; /* Add space between projects */
+  margin-top: 40px; /* Add space above the projects section */
+}
+
 /* App styles */
 .App {
   text-align: center;
+  background-color: #ffffff; /* White background for the main content */
+  border-radius: 15px; /* Rounded corners for the content box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  overflow: hidden; /* Prevent content overflow */
+  width: 100%;
+  max-width: 1200px; /* Limit the width of the content */
+  padding: 40px; /* Add padding inside the content box */
 }
 
 .App-header {
@@ -101,6 +147,7 @@
   opacity: 0;
   transform: translateY(20px);
   animation: fadeIn 1s ease-out forwards;
+  margin-bottom: 40px; /* Add space below the about-me section */
 }
 
 .about-me-image {
@@ -178,4 +225,14 @@ button::after {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Bluish background box */
+.background-box {
+  background: linear-gradient(to bottom, #a2cffe, #6ea8fe); /* Bluish gradient */
+  min-height: 100vh; /* Ensure it covers the full height of the viewport */
+  padding: 20px; /* Add some padding around the content */
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
 }
