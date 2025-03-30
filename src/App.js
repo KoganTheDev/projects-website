@@ -15,7 +15,7 @@ function App() {
   const projects = [
     {
       name: 'BLib - Library Management System 📘',
-      video: require('./assets/videos/BLib_project_video.mp4'), // Path to the video
+      video: './assets/videos/BLib_project_video.mp4',
       images: [require('./assets/images/BLib_images/BLib1.png'), require('./assets/images/BLib_images/BLib2.png'),
         require('./assets/images/BLib_images/BLib3.png'), require('./assets/images/BLib_images/BLib4.png')], // Paths to images
       description: 'BLib is a library management system, built with Java and JavaFX. It supports ' +
@@ -32,8 +32,9 @@ function App() {
     {
       name: 'Gymbory Website 💪',
       video: 'path/to/project2-video.mp4', // Path to the video
-      images: ['path/to/image3.jpg', 'path/to/image4.jpg'], // Paths to images
-      description: 'This is my second project.',
+      images: [require('./assets/images/Gymbory_images/Gymbory1.png'), require('./assets/images/Gymbory_images/Gymbory2.png'),
+        require('./assets/images/Gymbory_images/Gymbory3.png'), require('./assets/images/Gymbory_images/Gymbory4.png')], // Paths to images
+      description: 'The Gymbory Website is an interactive, responsive platform showcasing seamless user experiences through HTML, CSS, and JavaScript. Highlights include intuitive UI design, smooth animations, and optimized performance.',
       repoLink: 'https://github.com/KoganTheDev/The-Gymbory-Website',
     },
   ];

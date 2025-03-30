@@ -175,6 +175,8 @@
   border: 2px solid #21a1f1; /* Add a border when focused */
 }
 
+/*! Change description from centered to left align, use text-align:left*/
+
 /*------------------------------ App styles------------------------------------------------ */
 .App {
   text-align: center;
