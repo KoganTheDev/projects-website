@@ -9,7 +9,11 @@ import 'aos/dist/aos.css';
 
 function App() {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 1000, // Default animation duration
+      easing: 'ease-in-out', // Animation easing
+      once: false, // Whether animation should happen only once
+    });
   }, []);
 
   const projects = [
@@ -26,7 +30,7 @@ function App() {
       name: 'Custom UNIX Shells 🐧',
       video: 'path/to/project2-video.mp4', // Path to the video
       images: ['path/to/image3.jpg', 'path/to/image4.jpg'], // Paths to images
-      description: 'This is my second project.',
+      description: 'Custom UNIX Shells is a modular shell environment built in C on UNIX (Ubuntu) using fork(), exec(), and other Linux system calls, with specialized math, logic, and string shells, command history, and robust error handling.',
       repoLink: 'https://github.com/KoganTheDev/Custom-UNIX-Shells',
     },
     {
@@ -44,17 +48,10 @@ function App() {
       <div className="App">
         <Navbar />
         <header className="App-header">
-          <div data-aos="fade-up">
+          <div data-aos="zoom-in">
             <h1>Welcome to My Portfolio</h1>
           </div>
           <div id="about-me" className="about-me">
-            <div className="about-me-image">
-              <img
-                src={require('./assets/images/my_LinkedIn_image.png')}
-                alt="my LinkedIn profile"
-                className="profile-image"
-              />
-            </div>
             <div className="about-me-text">
               <p>
                 Passionate Software Engineering student with a strong foundation in

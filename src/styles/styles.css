@@ -200,10 +200,6 @@
   color: rgb(255, 255, 255);
 }
 
-.App-header h1 {
-  animation: bounce 1.5s infinite;
-}
-
 .about-me {
   display: flex;
   flex-direction: row; /* Arrange items in a row */
@@ -222,14 +218,7 @@
   margin-bottom: 40px; /* Add space below the about-me section */
 }
 
-.about-me-image {
-  flex: 1; /* Allow the image to take up one part of the row */
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-}
-
 .about-me-text {
-  flex: 2; /* Allow the text to take up two parts of the row */
   padding-left: 20px; /* Add some space between the image and text */
 }
 

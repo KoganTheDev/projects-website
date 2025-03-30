@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/styles.css';
+import Aos from 'aos';
 
 function Project({ name, images, description, repoLink, video }) {
   const settings = {
