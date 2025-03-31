@@ -3,11 +3,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/styles.css';
-import Aos from 'aos';
 
 function Project({ name, images, description, repoLink, video }) {
   const settings = {
-    dots: true, // Show navigation dots
+    dots: false, // Show navigation dots
     infinite: false, // Disable infinite scrolling
     speed: 500, // Transition speed
     slidesToShow: 1, // Show one slide at a time

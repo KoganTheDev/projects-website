@@ -29,7 +29,7 @@ function App() {
     {
       name: 'Custom UNIX Shells 🐧',
       video: 'path/to/project2-video.mp4', // Path to the video
-      images: ['path/to/image3.jpg', 'path/to/image4.jpg'], // Paths to images
+      images: [require('./assets/images/Unix_Shell_images/Unix1.png'), require('./assets/images/Unix_Shell_images/Unix2.png')], // Paths to images
       description: 'Custom UNIX Shells is a modular shell environment built in C on UNIX (Ubuntu) using fork(), exec(), and other Linux system calls, with specialized math, logic, and string shells, command history, and robust error handling.',
       repoLink: 'https://github.com/KoganTheDev/Custom-UNIX-Shells',
     },
