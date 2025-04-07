@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Project from './components/Project';
 import Footer from './components/Footer';
+import CardScroller from './components/CardScroller';
 import './styles/styles.css';
 import 'animate.css';
 import AOS from 'aos';
@@ -62,12 +63,15 @@ function App() {
               </p>
             </div>
           </div>
+
+
           <div id="projects" className="projects">
             {projects.map((project, index) => (
               <Project key={index} {...project} />
             ))}
           </div>
         </header>
+        <CardScroller/>
         <Footer id="contact" />
       </div>
     </div>

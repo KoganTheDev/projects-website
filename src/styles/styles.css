@@ -292,3 +292,75 @@ html {
   justify-content: center; /* Center the content horizontally */
   align-items: center; /* Center the content vertically */
 }
+
+/*----------------------------Cards CSS----------------------------------- */ 
+.card-scroller {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #f4f4f4;
+}
+
+.project-card {
+  width: 100%;
+  max-width:800px;
+  background: rgba(4, 30, 203, 0.429);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.project-card img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.indicator-container {
+  position: absolute;
+  top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.indicator {
+  width: 20px;
+  height: 20px;
+  background: #bbb;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.indicator.active {
+  background: #333;
+}
+
+.project-card h2 {
+  font-size: 2rem; /* Adjust size as needed */
+  font-weight: bold;
+  opacity: 0; /* Start with hidden text */
+  transform: translateX(-100%); /* Start from outside the card (left) */
+  animation: fadeInFromLeft 2s ease-out forwards; /* Animation for sliding in from left */
+  text-align: left; /* Align text to the left */
+  top: 20px; /* Distance from the top edge of the card */
+  left: 20px; /* Distance from the left edge of the card */
+}
+
+/* Fade-in and slide-in from left animation */
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0; /* Start invisible */
+    transform: translateX(0%); /* Start from outside on the left */
+  }
+  100% {
+    opacity: 1; /* End fully visible */
+    transform: translateX(0); /* End at its normal position */
+  }
+}
