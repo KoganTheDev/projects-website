@@ -22,12 +22,14 @@ export const ProjectCard = ({
     <motion.div
       whileHover={{ y: -5 }}
       className="bg-white dark:bg-dark-federal rounded-xl overflow-hidden shadow-xl w-full h-auto md:h-[700px] mx-auto relative group"
+      role="article"
+      aria-label={`Project: ${name}`}
     >
       {/* Image container with gradient overlay */}
       <div className="h-[300px] md:h-[400px] relative overflow-hidden">
         <motion.img
           src={images[0]}
-          alt={name}
+          alt={`Screenshot of ${name} project`}
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
@@ -44,11 +46,12 @@ export const ProjectCard = ({
           {description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-6" role="list" aria-label="Project technologies">
           {tags.map((tag) => (
             <span
               key={tag}
               className="px-3 md:px-4 py-1.5 md:py-2 bg-primary/10 text-primary dark:text-light-cyan rounded-full text-sm md:text-base font-medium"
+              role="listitem"
             >
               {tag}
             </span>
@@ -60,7 +63,8 @@ export const ProjectCard = ({
             href={repoLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-light-cyan transition-colors duration-300 text-base md:text-lg group"
+            className="flex items-center justify-center gap-2 text-primary dark:text-light-cyan hover:text-primary/80 dark:hover:text-light-cyan/80 transition-colors duration-300 text-base md:text-lg group"
+            aria-label={`View source code for ${name} on GitHub`}
           >
             <Github className="w-5 h-5 md:w-6 md:h-6 group-hover:rotate-12 transition-transform duration-300" />
             Source Code
@@ -70,6 +74,7 @@ export const ProjectCard = ({
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 text-primary dark:text-light-cyan hover:text-primary/80 dark:hover:text-light-cyan/80 transition-colors duration-300 text-base md:text-lg group"
+            aria-label={`View ${name} project demo`}
           >
             View Project
             <ExternalLink className="w-5 h-5 md:w-6 md:h-6 group-hover:rotate-12 transition-transform duration-300" />

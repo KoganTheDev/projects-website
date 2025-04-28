@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ProjectCard } from './ProjectCard';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const projects = [
   {
@@ -85,112 +86,87 @@ const projects = [
 
 export const ProjectScroller = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
 
   const nextSlide = () => {
-    if (currentIndex < projects.length - 1) {
-      setCurrentIndex(prev => prev + 1);
-    }
+    setCurrentIndex(prev => (prev + 1) % projects.length);
   };
 
   const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(prev => prev - 1);
-    }
+    setCurrentIndex(prev => (prev - 1 + projects.length) % projects.length);
   };
 
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (!sectionRef.current) return;
-      
-      const section = sectionRef.current;
-      const sectionTop = section.offsetTop;
-      const sectionBottom = sectionTop + section.offsetHeight;
-      const currentScroll = window.scrollY;
-      const footer = document.getElementById('contact');
-      const isLastProject = currentIndex === projects.length - 1;
-      const isFirstProject = currentIndex === 0;
-      
-      if (currentScroll >= sectionTop && currentScroll <= sectionBottom) {
-        if (isFirstProject && e.deltaY < 0) {
-          return;
-        }
-        
-        if (isLastProject && e.deltaY > 0 && footer) {
-          return;
-        }
-        
-        e.preventDefault();
-        
-        if (isScrolling) return;
-        setIsScrolling(true);
-        
-        if (e.deltaY > 0 && currentIndex < projects.length - 1) {
-          nextSlide();
-        } else if (e.deltaY < 0 && currentIndex > 0) {
-          prevSlide();
-        }
-        
-        setTimeout(() => setIsScrolling(false), 500);
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
-  }, [currentIndex, isScrolling]);
-
   return (
-    <section 
-      ref={sectionRef}
-      className="min-h-screen flex items-center justify-center relative py-20"
-    >
+    <section className="py-20 relative overflow-hidden" aria-label="Projects showcase">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-full md:flex-1">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-7xl mx-auto"
+        >
+          <motion.h2 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-federal-blue to-pacific-cyan"
+          >
+            My Projects
+          </motion.h2>
+
+          <div className="relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -50 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ 
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 0.5
+                }}
+                className="w-full"
               >
-                <ProjectCard
-                  name={projects[currentIndex].name}
-                  video={projects[currentIndex].video}
-                  images={projects[currentIndex].images}
-                  description={projects[currentIndex].description}
-                  repoLink={projects[currentIndex].repoLink}
-                  tags={projects[currentIndex].tags}
-                />
+                <ProjectCard {...projects[currentIndex]} />
               </motion.div>
             </AnimatePresence>
+
+            <div className="flex items-center justify-between mt-8">
+              <button
+                onClick={prevSlide}
+                className="p-2 rounded-full text-primary dark:text-light-cyan hover:text-primary/80 dark:hover:text-light-cyan/80 transition-colors"
+                aria-label="Previous project"
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
+
+              <div className="flex gap-2" role="tablist" aria-label="Project navigation">
+                {projects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                      index === currentIndex
+                        ? 'bg-primary dark:bg-light-cyan'
+                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-primary/50 dark:hover:bg-light-cyan/50'
+                    }`}
+                    role="tab"
+                    aria-selected={index === currentIndex}
+                    aria-label={`Go to project ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={nextSlide}
+                className="p-2 rounded-full text-primary dark:text-light-cyan hover:text-primary/80 dark:hover:text-light-cyan/80 transition-colors"
+                aria-label="Next project"
+              >
+                <ChevronRight className="w-8 h-8" />
+              </button>
+            </div>
           </div>
-          
-          {/* Dots Navigation */}
-          <div className="flex md:flex-col gap-4 md:gap-6 mt-8 md:mt-0">
-            {projects.map((_, index) => (
-              <motion.button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-4 h-4 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                  currentIndex === index
-                    ? 'bg-pacific-cyan dark:bg-light-cyan'
-                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
-                }`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                animate={{
-                  scale: currentIndex === index ? 1.2 : 1,
-                  y: currentIndex === index ? -2 : 0
-                }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                aria-label={`Go to project ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
