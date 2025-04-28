@@ -78,24 +78,6 @@ export const Navbar = ({ isDarkMode, setIsDarkMode, activeSection }: NavbarProps
               whileTap={{ scale: 0.95 }}
             >
               {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-              <AnimatePresence>
-                {isRippling && (
-                  <motion.div
-                    className={`absolute w-4 h-4 rounded-full ${
-                      isDarkMode ? 'bg-dark-federal' : 'bg-white'
-                    }`}
-                    initial={{ scale: 0, opacity: 0.5 }}
-                    animate={{ scale: 20, opacity: 0 }}
-                    exit={{ opacity: 0 }}
-                    style={{
-                      left: ripplePosition.x,
-                      top: ripplePosition.y,
-                      transform: 'translate(-50%, -50%)',
-                    }}
-                    transition={{ duration: 1, ease: 'easeOut' }}
-                  />
-                )}
-              </AnimatePresence>
             </motion.button>
           </div>
 
@@ -113,70 +95,64 @@ export const Navbar = ({ isDarkMode, setIsDarkMode, activeSection }: NavbarProps
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className={`md:hidden overflow-hidden ${
-                isDarkMode ? 'bg-dark-federal/95' : 'bg-white/95'
-              } backdrop-blur-md rounded-b-lg shadow-lg`}
-            >
-              <div className="py-4 space-y-4">
-                {['about', 'projects', 'contact'].map((section) => (
-                  <motion.a
-                    key={section}
-                    href={`#${section}`}
-                    onClick={() => scrollToSection(section)}
-                    className={`block text-lg font-medium transition-colors duration-300 ${
-                      activeSection === section
-                        ? 'text-pacific-cyan dark:text-light-cyan'
-                        : isDarkMode 
-                          ? 'text-white hover:text-light-cyan' 
-                          : 'text-gray-600 hover:text-pacific-cyan'
-                    }`}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                  </motion.a>
-                ))}
-                <motion.button
-                  ref={themeButtonRef}
-                  onClick={handleThemeToggle}
-                  className={`relative w-full p-3 rounded-full transition-colors duration-300 border-2 overflow-hidden flex items-center justify-center gap-2 ${
-                    isDarkMode
-                      ? 'bg-dark-federal text-white border-gray-600 hover:border-light-cyan'
-                      : 'text-gray-600 border-gray-300 hover:text-pacific-cyan hover:border-pacific-cyan'
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            className={`md:hidden overflow-hidden ${
+              isDarkMode ? 'bg-dark-federal/95' : 'bg-white/95'
+            } backdrop-blur-md rounded-b-lg shadow-lg`}
+          >
+            <div className="py-4 space-y-4">
+              {['about', 'projects', 'contact'].map((section) => (
+                <motion.a
+                  key={section}
+                  href={`#${section}`}
+                  onClick={() => scrollToSection(section)}
+                  className={`block text-lg font-medium transition-colors duration-300 ${
+                    activeSection === section
+                      ? 'text-pacific-cyan dark:text-light-cyan'
+                      : isDarkMode 
+                        ? 'text-white hover:text-light-cyan' 
+                        : 'text-gray-600 hover:text-pacific-cyan'
                   }`}
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
-                  {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-                  <span>{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>
-                  <AnimatePresence>
-                    {isRippling && (
-                      <motion.div
-                        className={`absolute w-4 h-4 rounded-full ${
-                          isDarkMode ? 'bg-dark-federal' : 'bg-white'
-                        }`}
-                        initial={{ scale: 0, opacity: 0.5 }}
-                        animate={{ scale: 20, opacity: 0 }}
-                        exit={{ opacity: 0 }}
-                        style={{
-                          left: ripplePosition.x,
-                          top: ripplePosition.y,
-                          transform: 'translate(-50%, -50%)',
-                        }}
-                        transition={{ duration: 1, ease: 'easeOut' }}
-                      />
-                    )}
-                  </AnimatePresence>
-                </motion.button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </motion.a>
+              ))}
+              <motion.button
+                ref={themeButtonRef}
+                onClick={handleThemeToggle}
+                className={`relative w-full p-3 rounded-full transition-colors duration-300 border-2 overflow-hidden flex items-center justify-center gap-2 ${
+                  isDarkMode
+                    ? 'bg-dark-federal text-white border-gray-600 hover:border-light-cyan'
+                    : 'text-gray-600 border-gray-300 hover:text-pacific-cyan hover:border-pacific-cyan'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+                <span>{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>
+                {isRippling && (
+                  <motion.div
+                    className={`absolute w-4 h-4 rounded-full ${
+                      isDarkMode ? 'bg-dark-federal' : 'bg-white'
+                    }`}
+                    initial={{ scale: 0, opacity: 0.5 }}
+                    animate={{ scale: 20, opacity: 0 }}
+                    style={{
+                      left: ripplePosition.x,
+                      top: ripplePosition.y,
+                      transform: 'translate(-50%, -50%)',
+                    }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
+                  />
+                )}
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
       </div>
     </nav>
   );

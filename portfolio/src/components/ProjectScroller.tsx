@@ -113,23 +113,20 @@ export const ProjectScroller = () => {
           </motion.h2>
 
           <div className="relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ 
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 20,
-                  duration: 0.5
-                }}
-                className="w-full"
-              >
-                <ProjectCard {...projects[currentIndex]} />
-              </motion.div>
-            </AnimatePresence>
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                duration: 0.5
+              }}
+              className="w-full"
+            >
+              <ProjectCard {...projects[currentIndex]} />
+            </motion.div>
 
             <div className="flex items-center justify-between mt-8">
               <button
