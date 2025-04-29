@@ -79,14 +79,5 @@ module.exports = {
   plugins: [],
   corePlugins: {
     preflight: false,
-  },
-  // Performance optimizations
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  },
+  }
 } 
