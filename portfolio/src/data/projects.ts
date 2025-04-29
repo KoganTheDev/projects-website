@@ -1,9 +1,13 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ProjectCard } from './ProjectCard';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+export interface Project {
+  name: string;
+  video: string;
+  images: string[];
+  description: string;
+  repoLink: string;
+  tags: string[];
+}
 
-const projects = [
+export const projects: Project[] = [
   {
     name: 'BLib - Library Management System',
     video: 'https://github.com/KoganTheDev/BLib_MidTerm_Project',
@@ -82,89 +86,4 @@ const projects = [
     repoLink: 'https://github.com/KoganTheDev/PROJECT',
     tags: ['C', 'Networking', 'TCP/IP', 'Socket Programming', 'Protocols']
   }
-];
-
-export const ProjectScroller = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex(prev => (prev + 1) % projects.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(prev => (prev - 1 + projects.length) % projects.length);
-  };
-
-  return (
-    <section className="py-20 relative overflow-hidden" aria-label="Projects showcase">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-7xl mx-auto"
-        >
-          <motion.h2 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-federal-blue to-pacific-cyan"
-          >
-            My Projects
-          </motion.h2>
-
-          <div className="relative">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ 
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                duration: 0.5
-              }}
-              className="w-full"
-            >
-              <ProjectCard {...projects[currentIndex]} />
-            </motion.div>
-
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <button
-                onClick={prevSlide}
-                className="px-4 py-2 rounded-full bg-white dark:bg-dark-federal border-2 border-primary dark:border-light-cyan text-primary dark:text-light-cyan hover:bg-primary/10 dark:hover:bg-light-cyan/10 transition-colors duration-500 shadow-md hover:shadow-lg"
-                aria-label="Previous project"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-
-              <div className="flex gap-2" role="tablist" aria-label="Project navigation">
-                {projects.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-colors duration-500 ${
-                      index === currentIndex
-                        ? 'bg-primary dark:bg-light-cyan'
-                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-primary/50 dark:hover:bg-light-cyan/50'
-                    }`}
-                    role="tab"
-                    aria-selected={index === currentIndex}
-                    aria-label={`Go to project ${index + 1}`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={nextSlide}
-                className="px-4 py-2 rounded-full bg-white dark:bg-dark-federal border-2 border-primary dark:border-light-cyan text-primary dark:text-light-cyan hover:bg-primary/10 dark:hover:bg-light-cyan/10 transition-colors duration-500 shadow-md hover:shadow-lg"
-                aria-label="Next project"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}; 
+]; 

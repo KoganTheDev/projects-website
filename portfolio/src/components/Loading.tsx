@@ -1,6 +1,20 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+// Reusable animation variants
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.5 }
+};
+
+// Neural Network Component
 const NeuralNetwork = () => {
   const nodes = 5;
   const layers = 3;
@@ -8,7 +22,6 @@ const NeuralNetwork = () => {
 
   return (
     <div className="relative w-64 h-64">
-      {/* Nodes */}
       {[...Array(layers)].map((_, layer) => (
         <div key={layer} className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
           {[...Array(nodes)].map((_, node) => (
@@ -33,36 +46,11 @@ const NeuralNetwork = () => {
           ))}
         </div>
       ))}
-
-      {/* Connections */}
-      {[...Array(layers - 1)].map((_, layer) => (
-        [...Array(nodes)].map((_, node) => (
-          [...Array(nodes)].map((_, nextNode) => (
-            <motion.div
-              key={`${layer}-${node}-${nextNode}`}
-              className="absolute w-0.5 bg-blue-400"
-              style={{
-                left: `${50 + (layer - 0.5) * spacing}%`,
-                top: `${(node / (nodes - 1)) * 100}%`,
-                height: `${Math.abs((nextNode - node) / (nodes - 1)) * 100}%`,
-                transform: `translate(-50%, ${node < nextNode ? '0' : '-100%'})`,
-              }}
-              animate={{
-                opacity: [0.2, 0.5, 0.2],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: (layer + node + nextNode) * 0.05,
-              }}
-            />
-          ))
-        ))
-      ))}
     </div>
   );
 };
 
+// Binary Rain Component
 const BinaryRain = () => {
   const columns = 20;
   const rows = 20;
@@ -100,43 +88,7 @@ const BinaryRain = () => {
   );
 };
 
-const HorizontalBinaryRain = () => {
-  const rows = 15;
-  const columns = 30;
-  const characters = ['0', '1'];
-
-  return (
-    <div className="relative w-64 h-64 overflow-hidden">
-      {[...Array(rows)].map((_, row) => (
-        <div key={row} className="absolute top-0 left-0 w-full h-full">
-          {[...Array(columns)].map((_, col) => (
-            <motion.div
-              key={`${row}-${col}`}
-              className="absolute text-green-500 font-mono text-xs"
-              style={{
-                left: `${(col / columns) * 100}%`,
-                top: `${(row / rows) * 100}%`,
-              }}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{
-                opacity: [0, 1, 0],
-                x: [0, 100],
-              }}
-              transition={{
-                duration: 2 + Math.random() * 2,
-                repeat: Infinity,
-                delay: row * 0.1 + col * 0.05,
-              }}
-            >
-              {characters[Math.floor(Math.random() * characters.length)]}
-            </motion.div>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-};
-
+// Circuit Board Component
 const CircuitBoard = () => {
   const paths = 8;
   const segments = 5;
@@ -176,6 +128,7 @@ const CircuitBoard = () => {
   );
 };
 
+// Progress Bar Component
 const ProgressBar = ({ progress = 0 }: { progress?: number }) => {
   return (
     <div className="relative w-64 h-10 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden shadow-inner">
@@ -183,20 +136,13 @@ const ProgressBar = ({ progress = 0 }: { progress?: number }) => {
         className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-blue-600"
         initial={{ width: 0 }}
         animate={{ width: `${progress}%` }}
-        transition={{
-          duration: 0.2,
-          ease: "easeOut"
-        }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
       />
       <motion.div
         className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-transparent via-white/40 to-transparent"
         initial={{ x: "-100%" }}
         animate={{ x: "100%" }}
-        transition={{
-          duration: 1.2,
-          repeat: Infinity,
-          ease: "linear"
-        }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
       />
       <div className="absolute inset-0 flex items-center justify-center text-white text-sm font-mono font-medium">
         {Math.round(progress)}%
@@ -205,6 +151,7 @@ const ProgressBar = ({ progress = 0 }: { progress?: number }) => {
   );
 };
 
+// Server Boot Component
 const ServerBoot = () => {
   const bootLines = [
     "> Initializing system...",
@@ -228,12 +175,7 @@ const ServerBoot = () => {
     <div className="relative w-64 h-64 font-mono text-green-500 text-xs">
       <motion.pre 
         className="text-center mb-4"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 1,
-          delay: 0.5,
-        }}
+        {...fadeInUp}
       >
         {asciiArt}
       </motion.pre>
@@ -243,83 +185,55 @@ const ServerBoot = () => {
             key={index}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: 1.5 + index * 0.5,
-            }}
+            transition={{ duration: 0.5, delay: 1.5 + index * 0.5 }}
           >
             {line}
           </motion.div>
         ))}
       </div>
-      <motion.div
-        className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1.5
-        }}
-      />
     </div>
   );
 };
 
-const LoadingAnimations = [
-  NeuralNetwork,
-  BinaryRain,
-  HorizontalBinaryRain,
-  CircuitBoard,
-  ProgressBar,
-  ServerBoot,
-];
-
+// Main Loading Component
 export const Loading = () => {
-  const [animationIndex, setAnimationIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [currentAnimation, setCurrentAnimation] = useState(() => 
+    Math.floor(Math.random() * 4) // Randomly select between 4 animations
+  );
 
   useEffect(() => {
-    setAnimationIndex(Math.floor(Math.random() * LoadingAnimations.length));
-    
-    // Simulate loading progress to reach 100% in 3 seconds
-    const startTime = Date.now();
-    const duration = 3000; // 3 seconds in milliseconds
-    
     const interval = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      const newProgress = Math.min((elapsed / duration) * 100, 100);
-      
-      setProgress(newProgress);
-      
-      if (newProgress >= 100) {
-        clearInterval(interval);
-      }
-    }, 16); // ~60fps for smooth animation
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 1;
+      });
+    }, 30);
 
     return () => clearInterval(interval);
   }, []);
 
-  const CurrentAnimation = LoadingAnimations[animationIndex];
+  const animations = [
+    NeuralNetwork,
+    BinaryRain,
+    CircuitBoard,
+    ServerBoot
+  ];
+
+  const CurrentAnimation = animations[currentAnimation];
 
   return (
-    <div className="fixed inset-0 bg-white dark:bg-dark-federal flex items-center justify-center z-50">
-      <div className="text-center space-y-12">
-        {CurrentAnimation === ProgressBar ? (
-          <ProgressBar progress={progress} />
-        ) : (
-          <CurrentAnimation />
-        )}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="text-xl text-gray-600 dark:text-gray-300"
-        >
-          Loading...
-        </motion.p>
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark-federal">
+      <motion.div
+        className="flex flex-col items-center gap-8"
+        {...fadeIn}
+      >
+        <CurrentAnimation />
+        <ProgressBar progress={progress} />
+      </motion.div>
     </div>
   );
 }; 

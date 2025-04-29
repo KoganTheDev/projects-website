@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -11,26 +11,27 @@ const AppContent = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   const [activeSection, setActiveSection] = useState('home');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'contact'];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
-    };
+  const sections = useMemo(() => ['home', 'about', 'projects', 'contact'], []);
 
-    window.addEventListener('scroll', handleScroll);
+  const handleScroll = useCallback(() => {
+    const currentSection = sections.find(section => {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top <= 100 && rect.bottom >= 100;
+      }
+      return false;
+    });
+    
+    if (currentSection) {
+      setActiveSection(currentSection);
+    }
+  }, [sections]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <div className="min-h-screen bg-white dark:bg-dark-federal transition-colors duration-300">
