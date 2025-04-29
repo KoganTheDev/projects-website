@@ -4,7 +4,7 @@ import { Linkedin, Github, Mail } from 'lucide-react';
 const socialLinks = [
   {
     icon: <Linkedin size={32} />,
-    href: 'https://www.linkedin.com/in/yuval-kogan-software-engineer/',
+    href: 'www.linkedin.com/in/yuval-kogan',
     label: 'LinkedIn',
     className: 'text-federal-blue hover:text-pacific-cyan dark:text-light-cyan dark:hover:text-pacific-cyan'
   },
@@ -16,7 +16,7 @@ const socialLinks = [
   },
   {
     icon: <Mail size={32} />,
-    href: 'mailto:yuvalkogan2003@gmail.com',
+    href: 'mailto:Yuval-Kogan@outlook.co.il?subject=Hey Yuval&body=Hey Yuval :)\n',
     label: 'Email',
     className: 'text-federal-blue hover:text-pacific-cyan dark:text-light-cyan dark:hover:text-pacific-cyan'
   }
