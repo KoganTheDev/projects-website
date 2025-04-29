@@ -3,19 +3,19 @@ import { Linkedin, Github, Mail } from 'lucide-react';
 
 const socialLinks = [
   {
-    icon: <Linkedin size={32} />,
+    icon: <Linkedin size={42} />,
     href: 'www.linkedin.com/in/yuval-kogan',
     label: 'LinkedIn',
     className: 'text-federal-blue hover:text-pacific-cyan dark:text-light-cyan dark:hover:text-pacific-cyan'
   },
   {
-    icon: <Github size={32} />,
+    icon: <Github size={42} />,
     href: 'https://github.com/KoganTheDev',
     label: 'GitHub',
     className: 'text-federal-blue hover:text-pacific-cyan dark:text-light-cyan dark:hover:text-pacific-cyan'
   },
   {
-    icon: <Mail size={32} />,
+    icon: <Mail size={42} />,
     href: 'mailto:Yuval-Kogan@outlook.co.il?subject=Hey Yuval&body=Hey Yuval :)\n',
     label: 'Email',
     className: 'text-federal-blue hover:text-pacific-cyan dark:text-light-cyan dark:hover:text-pacific-cyan'
