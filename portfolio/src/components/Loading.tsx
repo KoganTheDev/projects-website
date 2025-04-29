@@ -133,7 +133,7 @@ const ProgressBar = ({ progress = 0 }: { progress?: number }) => {
   return (
     <div className="relative w-64 h-10 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden shadow-inner">
       <motion.div
-        className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-blue-600"
+        className="absolute top-0 left-0 h-full bg-gradient-to-r from-federal-blue to-pacific-cyan"
         initial={{ width: 0 }}
         animate={{ width: `${progress}%` }}
         transition={{ duration: 0.2, ease: "easeOut" }}
@@ -199,21 +199,50 @@ const ServerBoot = () => {
 export const Loading = () => {
   const [progress, setProgress] = useState(0);
   const [currentAnimation, setCurrentAnimation] = useState(() => 
-    Math.floor(Math.random() * 4) // Randomly select between 4 animations
+    Math.floor(Math.random() * 4)
   );
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 30);
+    // Simulate different loading stages with faster timing
+    const loadingStages = [
+      { target: 30, duration: 300 },  // Initial loading
+      { target: 60, duration: 400 },  // Loading resources
+      { target: 85, duration: 500 },  // Processing
+      { target: 100, duration: 300 }  // Complete
+    ];
 
-    return () => clearInterval(interval);
+    let currentStage = 0;
+    let startTime = Date.now();
+    let lastProgress = 0;
+
+    const updateProgress = () => {
+      const now = Date.now();
+      const elapsed = now - startTime;
+      const stage = loadingStages[currentStage];
+      
+      if (elapsed >= stage.duration) {
+        lastProgress = stage.target;
+        setProgress(stage.target);
+        currentStage++;
+        startTime = now;
+        
+        if (currentStage >= loadingStages.length) {
+          return;
+        }
+      } else {
+        const progress = lastProgress + 
+          ((stage.target - lastProgress) * (elapsed / stage.duration));
+        setProgress(progress);
+      }
+      
+      requestAnimationFrame(updateProgress);
+    };
+
+    requestAnimationFrame(updateProgress);
+
+    return () => {
+      // Cleanup will be handled by the animation frame
+    };
   }, []);
 
   const animations = [
