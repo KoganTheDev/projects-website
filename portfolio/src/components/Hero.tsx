@@ -68,62 +68,62 @@ export const Hero = () => {
             Learn More
             <ArrowDown className="w-6 h-6" aria-hidden="true" />
           </motion.button>
+
+          {/* Enhanced Scroll indicator */}
+          <motion.div 
+            {...fadeIn}
+            transition={{ delay: 1 }}
+            className="mt-8 md:mt-16 flex justify-center"
+            aria-hidden="true"
+          >
+            <div className="relative">
+              {/* Outer pulsing circle */}
+              <motion.div
+                className="absolute inset-0 border-2 border-pacific-cyan dark:border-light-cyan rounded-full"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0.2, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              {/* Inner circle with moving oval */}
+              <div className="w-12 h-12 border-2 border-pacific-cyan dark:border-light-cyan rounded-full flex items-center justify-center">
+                <div className="relative w-2 h-6">
+                  {/* Moving oval */}
+                  <motion.div
+                    className="absolute inset-0 border border-pacific-cyan dark:border-light-cyan rounded-full"
+                    animate={{
+                      scaleY: [1, 1.5, 1],
+                      y: [0, 4, 0],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  {/* Line */}
+                  <motion.div
+                    className="absolute inset-0 bg-pacific-cyan dark:bg-light-cyan rounded-full"
+                    animate={{
+                      y: [0, 8, 0],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-      
-      {/* Enhanced Scroll indicator */}
-      <motion.div 
-        {...fadeIn}
-        transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <div className="relative">
-          {/* Outer pulsing circle */}
-          <motion.div
-            className="absolute inset-0 border-2 border-pacific-cyan dark:border-light-cyan rounded-full"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.5, 0.2, 0.5],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          {/* Inner circle with moving oval */}
-          <div className="w-12 h-12 border-2 border-pacific-cyan dark:border-light-cyan rounded-full flex items-center justify-center">
-            <div className="relative w-2 h-6">
-              {/* Moving oval */}
-              <motion.div
-                className="absolute inset-0 border border-pacific-cyan dark:border-light-cyan rounded-full"
-                animate={{
-                  scaleY: [1, 1.5, 1],
-                  y: [0, 4, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              {/* Line */}
-              <motion.div
-                className="absolute inset-0 bg-pacific-cyan dark:bg-light-cyan rounded-full"
-                animate={{
-                  y: [0, 8, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }; 
