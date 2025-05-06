@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github } from 'lucide-react';
 
 interface ProjectCardProps {
   name: string;
@@ -21,7 +21,7 @@ export const ProjectCard = ({
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className="bg-white dark:bg-dark-federal rounded-xl overflow-hidden shadow-xl w-full h-auto md:h-[700px] mx-auto relative group transition-colors duration-500"
+      className="bg-black rounded-xl overflow-hidden shadow-xl w-full h-auto md:h-[700px] mx-auto relative group transition-colors duration-500 border-2 border-light-cyan"
       role="article"
       aria-label={`Project: ${name}`}
     >
@@ -42,7 +42,7 @@ export const ProjectCard = ({
           {name}
         </h3>
         
-        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6 flex-grow transition-colors duration-500">
+        <p className="text-base md:text-lg text-gray-300 mb-6 flex-grow transition-colors duration-500">
           {description}
         </p>
 
@@ -58,26 +58,16 @@ export const ProjectCard = ({
           ))}
         </div>
         
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-auto">
+        <div className="flex justify-start mt-auto">
           <a
             href={repoLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-dark-federal border-2 border-primary dark:border-light-cyan text-primary dark:text-light-cyan hover:bg-primary/10 dark:hover:bg-light-cyan/10 transition-colors duration-500 shadow-md hover:shadow-lg text-base md:text-lg"
+            className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-black border-[3px] border-light-cyan text-light-cyan hover:bg-light-cyan/10 transition-colors duration-500 shadow-md hover:shadow-lg text-base md:text-lg"
             aria-label={`View source code for ${name} on GitHub`}
           >
             <Github className="w-5 h-5 md:w-6 md:h-6" />
             Source Code
-          </a>
-          <a
-            href={video}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-dark-federal border-2 border-primary dark:border-light-cyan text-primary dark:text-light-cyan hover:bg-primary/10 dark:hover:bg-light-cyan/10 transition-colors duration-500 shadow-md hover:shadow-lg text-base md:text-lg"
-            aria-label={`View ${name} project demo`}
-          >
-            View Project
-            <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
           </a>
         </div>
       </div>

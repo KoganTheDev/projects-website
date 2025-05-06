@@ -45,20 +45,36 @@ export const About = () => {
             >
               <div>
                 <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-federal-blue dark:text-light-cyan">Skills</h3>
-                <ul className="space-y-3">
-                  {['Java', 'C', 'JavaScript', 'TypeScript', 'React', 'Node.js', 'SQL', 'UNIX/Linux'].map((skill, index) => (
-                    <motion.li
-                      key={skill}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.8 + index * 0.1 }}
-                      className="flex items-center text-lg md:text-xl text-gray-700 dark:text-gray-200"
-                    >
-                      <span className="w-3 h-3 bg-pacific-cyan rounded-full mr-3" />
-                      {skill}
-                    </motion.li>
-                  ))}
-                </ul>
+                <div className="grid grid-cols-2 gap-x-4">
+                  <ul className="space-y-3">
+                    {['Python', 'C++', 'C', 'Java', 'JavaScript', 'TypeScript', 'React'].map((skill, index) => (
+                      <motion.li
+                        key={skill}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.8 + index * 0.1 }}
+                        className="flex items-center text-lg md:text-xl text-gray-700 dark:text-gray-200"
+                      >
+                        <span className="w-3 h-3 bg-pacific-cyan rounded-full mr-3" />
+                        {skill}
+                      </motion.li>
+                    ))}
+                  </ul>
+                  <ul className="space-y-3">
+                    {['Node.js', 'Next.js', 'SQL', 'HTML', 'CSS', 'UNIX/Linux'].map((skill, index) => (
+                      <motion.li
+                        key={skill}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.8 + (index + 7) * 0.1 }}
+                        className="flex items-center text-lg md:text-xl text-gray-700 dark:text-gray-200"
+                      >
+                        <span className="w-3 h-3 bg-pacific-cyan rounded-full mr-3" />
+                        {skill}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               <div>

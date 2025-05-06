@@ -6,25 +6,25 @@ const socialLinks = [
     icon: <Linkedin size={42} />,
     href: 'www.linkedin.com/in/yuval-kogan',
     label: 'LinkedIn',
-    className: 'text-federal-blue hover:text-pacific-cyan dark:text-light-cyan dark:hover:text-pacific-cyan'
+    className: 'text-light-cyan hover:text-pacific-cyan'
   },
   {
     icon: <Github size={42} />,
     href: 'https://github.com/KoganTheDev',
     label: 'GitHub',
-    className: 'text-federal-blue hover:text-pacific-cyan dark:text-light-cyan dark:hover:text-pacific-cyan'
+    className: 'text-light-cyan hover:text-pacific-cyan'
   },
   {
     icon: <Mail size={42} />,
     href: 'mailto:Yuval-Kogan@outlook.co.il?subject=Hey Yuval&body=Hey Yuval :)\n',
     label: 'Email',
-    className: 'text-federal-blue hover:text-pacific-cyan dark:text-light-cyan dark:hover:text-pacific-cyan'
+    className: 'text-light-cyan hover:text-pacific-cyan'
   }
 ];
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact" className="min-h-[20vh] flex items-center justify-center bg-white dark:bg-dark-federal">
+    <section id="contact" className="min-h-[20vh] flex items-center justify-center bg-black">
       <div className="max-w-4xl mx-auto px-4 py-6">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-federal-blue to-pacific-cyan">
           Contact Me

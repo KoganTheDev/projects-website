@@ -5,10 +5,9 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { ProjectScroller } from './components/ProjectScroller';
 import { Contact } from './components/Contact';
-import { Loading } from './components/Loading';
 
 const AppContent = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode } = useTheme();
   const [activeSection, setActiveSection] = useState('home');
 
   const sections = useMemo(() => ['home', 'about', 'projects', 'contact'], []);
@@ -34,10 +33,9 @@ const AppContent = () => {
   }, [handleScroll]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark-federal transition-colors duration-300">
+    <div className="min-h-screen bg-black">
       <Navbar 
         isDarkMode={isDarkMode} 
-        setIsDarkMode={toggleTheme} 
         activeSection={activeSection} 
       />
       <main className="container mx-auto px-4">
@@ -51,23 +49,9 @@ const AppContent = () => {
 };
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <ThemeProvider defaultTheme="dark">
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <AppContent />
-      )}
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 };
