@@ -6,42 +6,42 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const projects = [
   {
     name: 'TCP/IP Stack Implementation',
-    image: '/images/tcp_ip.jpg',
+    image: 'https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?auto=format&fit=crop&w=800&q=80',
     description: 'Implementation of a custom TCP/IP stack, demonstrating deep understanding of network protocols and low-level networking concepts.',
     repoLink: 'https://github.com/KoganTheDev/PROJECT',
     tags: ['C', 'Networking', 'TCP/IP', 'Socket Programming', 'Protocols']
   },
   {
     name: 'Advanced Web Technologies',
-    image: '/images/web_project.jpg',
+    image: 'https://images.unsplash.com/photo-1695238665551-dba1b0951dfb?auto=format&fit=crop&w=800&q=80',
     description: 'Advanced web technologies project showcasing modern web development practices, frameworks, and tools for building robust web applications.',
     repoLink: 'https://github.com/KoganTheDev/Advanced-Web-Technologies',
     tags: ['React', 'Node.js', 'TypeScript', 'REST API', 'WebSocket']
   },
   {
     name: 'Cloud Computing Project',
-    image: '/images/cloud_project.jpg',
+    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80',
     description: 'A cloud computing project implementing scalable and efficient cloud-based solutions using modern cloud technologies and architectures.',
     repoLink: 'https://github.com/KoganTheDev/cloud-computing-project',
     tags: ['Cloud Computing', 'AWS', 'Docker', 'Kubernetes', 'CI/CD']
   },
   {
     name: 'BLib - Library Management System',
-    image: '/images/BLib.jpg',
+    image: 'https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=800&q=80',
     description: 'BLib is a library management system designed to streamline library operations for Braude College. It simplifies book inventory management, user subscriptions, and services like book borrowing, returning, extensions, and reservations.',
     repoLink: 'https://github.com/KoganTheDev/BLib_MidTerm_Project',
     tags: ['Java', 'SQL', 'OOP', 'MySQL', 'JavaFX']
   },
   {
     name: 'Custom UNIX Shells',
-    image: '/images/unix_shell.jpg',
+    image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=800&q=80',
     description: 'Custom UNIX Shells is a modular shell environment built in C on UNIX (Ubuntu) using fork(), exec(), and other Linux system calls, with specialized math, logic, and string shells, command history, and robust error handling.',
     repoLink: 'https://github.com/KoganTheDev/Custom-UNIX-Shells',
     tags: ['C', 'UNIX', 'Linux', 'System Programming', 'Shell Scripting']
   },
   {
     name: 'Gymbory Website',
-    image: '/images/gymbory.jpg',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
     description: 'The Gymbory Website is an interactive, responsive platform showcasing seamless user experiences through HTML, CSS, and JavaScript. Highlights include intuitive UI design, smooth animations, and optimized performance.',
     repoLink: 'https://github.com/KoganTheDev/The-Gymbory-Website',
     tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'UI/UX']
