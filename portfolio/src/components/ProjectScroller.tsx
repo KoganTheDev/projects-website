@@ -3,13 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ProjectCard } from './ProjectCard';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-
-// TODO: edit videos and put the ones i made
-// ? Understand why there are way too many images for the project constants
 const projects = [
   {
     name: 'TCP/IP Stack Implementation',
-    video: 'https://github.com/KoganTheDev/PROJECT',
     images: [
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
@@ -22,7 +18,6 @@ const projects = [
   },
   {
     name: 'Advanced Web Technologies',
-    video: 'https://github.com/KoganTheDev/Advanced-Web-Technologies',
     images: [
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
@@ -35,7 +30,6 @@ const projects = [
   },
   {
     name: 'Cloud Computing Project',
-    video: 'https://github.com/KoganTheDev/cloud-computing-project',
     images: [
       'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=60',
       'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=60',
@@ -48,7 +42,6 @@ const projects = [
   },
   {
     name: 'BLib - Library Management System',
-    video: 'https://github.com/KoganTheDev/BLib_MidTerm_Project',
     images: [
       'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&auto=format&fit=crop&q=60',
       'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&auto=format&fit=crop&q=60',
@@ -61,7 +54,6 @@ const projects = [
   },
   {
     name: 'Custom UNIX Shells',
-    video: 'https://github.com/KoganTheDev/Custom-UNIX-Shells',
     images: [
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
@@ -74,7 +66,6 @@ const projects = [
   },
   {
     name: 'Gymbory Website',
-    video: 'https://github.com/KoganTheDev/The-Gymbory-Website',
     images: [
       'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=60',
       'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=60',

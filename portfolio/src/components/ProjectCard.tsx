@@ -3,7 +3,6 @@ import { Github } from 'lucide-react';
 
 interface ProjectCardProps {
   name: string;
-  video: string;
   images: string[];
   description: string;
   repoLink: string;
@@ -12,7 +11,6 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({
   name,
-  video,
   images,
   description,
   repoLink,

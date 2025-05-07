@@ -31,7 +31,7 @@ const App = () => {
   }, [handleScroll]);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gray-900">
       <Navbar activeSection={activeSection} />
       <main className="container mx-auto px-4">
         <Hero />
