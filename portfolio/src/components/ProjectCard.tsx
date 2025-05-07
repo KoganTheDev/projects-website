@@ -3,7 +3,7 @@ import { Github } from 'lucide-react';
 
 interface ProjectCardProps {
   name: string;
-  images: string[];
+  image: string;
   description: string;
   repoLink: string;
   tags: string[];
@@ -11,7 +11,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({
   name,
-  images,
+  image,
   description,
   repoLink,
   tags,
@@ -26,7 +26,7 @@ export const ProjectCard = ({
       {/* Image container with gradient overlay */}
       <div className="h-[300px] md:h-[400px] relative overflow-hidden">
         <motion.img
-          src={images[0]}
+          src={image}
           alt={`Screenshot of ${name} project`}
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.05 }}
