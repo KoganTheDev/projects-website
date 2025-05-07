@@ -3,11 +3,10 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 interface NavbarProps {
-  isDarkMode: boolean;
   activeSection: string;
 }
 
-export const Navbar = ({ isDarkMode, activeSection }: NavbarProps) => {
+export const Navbar = ({ activeSection }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {

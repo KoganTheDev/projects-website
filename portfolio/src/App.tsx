@@ -1,13 +1,11 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { ProjectScroller } from './components/ProjectScroller';
 import { Contact } from './components/Contact';
 
-const AppContent = () => {
-  const { isDarkMode } = useTheme();
+const App = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   const sections = useMemo(() => ['home', 'about', 'projects', 'contact'], []);
@@ -34,10 +32,7 @@ const AppContent = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      <Navbar 
-        isDarkMode={isDarkMode} 
-        activeSection={activeSection} 
-      />
+      <Navbar activeSection={activeSection} />
       <main className="container mx-auto px-4">
         <Hero />
         <About />
@@ -45,14 +40,6 @@ const AppContent = () => {
         <Contact />
       </main>
     </div>
-  );
-};
-
-const App = () => {
-  return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
   );
 };
 

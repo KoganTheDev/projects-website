@@ -4,7 +4,7 @@ export const About = () => {
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-light-cyan/20 to-pacific-cyan/20 dark:from-dark-federal/20 dark:to-dark-pacific/20 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-light-cyan/20 to-pacific-cyan/20 -z-10" />
       
       <div className="container mx-auto px-4">
         <motion.div
@@ -25,10 +25,10 @@ export const About = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="bg-white dark:bg-dark-federal rounded-2xl shadow-xl p-8 md:p-12"
+            className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
           >
             <motion.p 
-              className="text-xl md:text-2xl text-gray-700 dark:text-gray-100 mb-8 leading-relaxed"
+              className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -44,7 +44,7 @@ export const About = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
             >
               <div>
-                <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-federal-blue dark:text-light-cyan">Skills</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-federal-blue">Skills</h3>
                 <div className="grid grid-cols-2 gap-x-4">
                   <ul className="space-y-3">
                     {['Python', 'C++', 'C', 'Java', 'JavaScript', 'TypeScript', 'React'].map((skill, index) => (
@@ -53,7 +53,7 @@ export const About = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.8 + index * 0.1 }}
-                        className="flex items-center text-lg md:text-xl text-gray-700 dark:text-gray-200"
+                        className="flex items-center text-lg md:text-xl text-gray-700"
                       >
                         <span className="w-3 h-3 bg-pacific-cyan rounded-full mr-3" />
                         {skill}
@@ -67,7 +67,7 @@ export const About = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.8 + (index + 7) * 0.1 }}
-                        className="flex items-center text-lg md:text-xl text-gray-700 dark:text-gray-200"
+                        className="flex items-center text-lg md:text-xl text-gray-700"
                       >
                         <span className="w-3 h-3 bg-pacific-cyan rounded-full mr-3" />
                         {skill}
@@ -78,7 +78,7 @@ export const About = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-federal-blue dark:text-light-cyan">Education</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-federal-blue">Education</h3>
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -86,9 +86,9 @@ export const About = () => {
                   className="space-y-6"
                 >
                   <div>
-                    <h4 className="font-medium text-xl md:text-2xl text-gray-800 dark:text-gray-100">Ort Braude College of Engineering</h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">B.Sc. in Software Engineering</p>
-                    <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg">2022 - Present</p>
+                    <h4 className="font-medium text-xl md:text-2xl text-gray-800">Ort Braude College of Engineering</h4>
+                    <p className="text-gray-600 text-lg md:text-xl">B.Sc. in Software Engineering</p>
+                    <p className="text-gray-500 text-base md:text-lg">2022 - Present</p>
                   </div>
                 </motion.div>
               </div>
